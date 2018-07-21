@@ -1,0 +1,16 @@
+#BlueJ class context
+comment0.target=MarkovFour
+comment1.params=
+comment1.target=MarkovFour()
+comment1.text=\ \ \ \ private\ String\ myText;\r\nprivate\ Random\ myRandom;
+comment2.params=seed
+comment2.target=void\ setRandom(int)
+comment3.params=s
+comment3.target=void\ setTraining(java.lang.String)
+comment4.params=numChars
+comment4.target=java.lang.String\ getRandomText(int)
+comment4.text=\ \ \ \ public\ String\ getRandomText(int\ numChars){\r\n\ \ \ \ \ \ \ \ if\ (myText\ \=\=\ null){\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ "";\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ StringBuilder\ sb\ \=\ new\ StringBuilder();\r\n\ \ \ \ \ \ \ \ for(int\ k\=0;\ k\ <\ numChars;\ k++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ index\ \=\ myRandom.nextInt(myText.length());\r\n\ \ \ \ \ \ \ \ \ \ \ \ sb.append(myText.charAt(index));\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ return\ sb.toString();\r\n}
+comment5.params=
+comment5.target=java.lang.String\ toString()
+comment5.text=\ \ \ \ public\ ArrayList<String>\ getFollows(String\ key){\r\n\ \ \ \ \ \ \ \ ArrayList<String>\ follows\ \=\ new\ ArrayList<String>();\r\n\ \ \ \ \ \ \ \ int\ pos\ \=\ 0;\r\n\ \ \ \ \ \ \ \ while\ (pos\ <\ myText.length()){\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ start\ \=\ myText.indexOf(key,pos);\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ \=\=\ -1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ +\ key.length()\ >\ myText.length()-1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ String\ next\ \=\ myText.substring(start+key.length(),start+key.length()+1);\r\n\ \ \ \ \ \ \ \ \ \ \ \ follows.add(next);\r\n\ \ \ \ \ \ \ \ \ \ \ \ pos\ \=\ start+key.length();\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ follows;\r\n}
+numComments=6

@@ -1,0 +1,19 @@
+{
+"configs" : [
+  {
+"server" : "45.78.19.186",
+"server_port" : 444,
+"password" : "NDljYjI4MD",
+"method" : "aes-256-cfb",
+"remarks" : "ss@45.78.19.186"}
+
+],
+"strategy" : null,
+"index" : 0,
+"global" : true,
+"enabled" : true,
+"shareOverLan" : true,
+"isDefault" : false,
+"localPort" : 1088,
+"pacUrl" : null,
+"useOnlinePac" : false}

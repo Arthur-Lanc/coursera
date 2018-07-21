@@ -1,0 +1,44 @@
+Class: MapGraph
+
+Modifications made to MapGraph (what and why): 
+    add bfsSearch method to found the path and construct the parentMap.
+    add constructPath method to return the order point from start to goal.
+
+Class name: MapNode
+
+Purpose and description of class:
+    use to contain the edge info.
+    like location, neighbours, roadName and so on.
+    provide getLocation method and getNeighbors which are useful.
+
+Overall Design Justification (4-6 sentences):
+    use HashMap<GeographicPoint, MapNode> to store the point and MapNode info in MapGraph class, so we can find the specific node fastly.
+    use MapNode class to store the individual node in graph. 
+    we also store the neighbours and road info in this class, so is easy to maintain the node or add new property to it.
+    use numEdges variable to store edge number in MapGraph class. 
+    althouth we can get this info by loop all map node in hashmap, but it will consume some time when node become larger and larger.
+
+
+
+
+
+
+Class: MapGraph
+
+Modifications made to MapGraph (what and why): 
+    add bfsSearch method to found the path and construct the parentMap.
+    add constructPath method to return the order point from start to goal.
+
+Class name: MapNode
+
+Purpose and description of class:
+    use to contain the edge info.
+    like location, neighbours, roadName and so on.
+    provide getLocation method and getNeighbors which are useful.
+
+Overall Design Justification (4-6 sentences):
+    use HashMap<GeographicPoint, MapNode> to store the point and MapNode info in MapGraph class, so we can find the specific node fastly.
+    use MapNode class to store the individual node in graph. 
+    we also store the neighbours and road info in this class, so is easy to maintain the node or add new property to it.
+    use numEdges variable to store edge number in MapGraph class. 
+    althouth we can get this info by loop all map node in hashmap, but it will consume some time when node become larger and larger.

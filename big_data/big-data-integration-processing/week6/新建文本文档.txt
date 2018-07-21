@@ -1,0 +1,65 @@
+> db.users.find({"user.Location" : {$ne : null}}).count()
+6937
+
+> db.users.find({$where:"this.user.FollowersCount > this.user.FriendsCount"}).count()
+5809
+
+> db.users.find({"tweet_text":/http:/},{"tweet_text":1,"_id":0}).pretty()
+{
+	"tweet_text" : "RT @BWGotheem: Top 15 Sexiest Woman of the World Cup😍👌🏼😱\n\nhttp://t.co/jRQy5AkVtW http://t.co/aMuXZ3gcWy"
+}
+{
+	"tweet_text" : "RT @TerraceImages: Question for all the football fans of Twitter. \n\nAre you in favour of Safe Standing? \n\nRT - YES\nFAV - NO http://t.co/D42…"
+}
+{ "tweet_text" : "http://Allen complete stoke move https://t.co/xpc6hMp0Sn" }
+{
+	"tweet_text" : "RT @espn: This Florida St. football fan found a creative way to remind Gators fans about last season.\n\n(via @TJ_Pittinger) http://t.co/GJVr…"
+}
+{
+	"tweet_text" : "RT @espn: This Florida St. football fan found a creative way to remind Gators fans about last season.\n\n(via @TJ_Pittinger) http://t.co/GJVr…"
+}
+{
+	"tweet_text" : "RT @newfy320: Chloe ready for some Michigan football! http://t.co/FN2S0M9t6O"
+}
+{
+	"tweet_text" : "RT @izzy5115: Even my dog Blu is ready for Michigan football @umichfootball http://t.co/gp19MBW9ih"
+}
+{
+	"tweet_text" : "RT @Ass0Star: RT/FAV #xxx some #football and #superbowl fans are #anal #ass #dilation #insertion #dilation #culo #dildo #gapers http://t.co…"
+}
+{
+	"tweet_text" : "RT @FootyFunnysUK: BREAKING: Portugal legend Luis Figo has announced his decision to run for Fifa president at this year's election http://…"
+}
+{
+	"tweet_text" : "RT @trevorphibbs: Friday means one thing: Football is on the horizon. #TribPreps http://t.co/ERrPFknKx6"
+}
+
+
+
+> db.users.createIndex({"tweet_text":"text"})
+> db.users.find({$and:[{$text:{$search:"England -UEFA"}},{"tweet_text":/Euro 2016/}]}).count()
+2
+
+
+
+
+> db.users.find({$and:[{"user.Location" : "Ireland"},{"tweet_text" : /UEFA/}]}).sort({"user.FriendsCount":1}).pretty()
+{
+	"_id" : ObjectId("578ffc547eb951401527b5da"),
+	"user_name" : "ProfitwatchInfo",
+	"retweet_count" : 0,
+	"tweet_followers_count" : 602,
+	"source" : "<a href=\"http://twitter.com/download/android\" rel=\"nofollow\">Twitter for Android</a>",
+	"coordinates" : null,
+	"tweet_mentioned_count" : 1,
+	"tweet_ID" : "755893533047914498",
+	"tweet_text" : "RT @DundalkFC: Full Time FH 2-2 Dundalk, Dundalk qualify to the next round of the UEFA Champions League!",
+	"user" : {
+		"CreatedAt" : ISODate("2016-03-31T19:06:24Z"),
+		"FavouritesCount" : 1456,
+		"FollowersCount" : 602,
+		"FriendsCount" : 2381,
+		"UserId" : -552161280,
+		"Location" : "Ireland"
+	}
+}

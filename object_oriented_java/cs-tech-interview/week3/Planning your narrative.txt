@@ -1,0 +1,7 @@
+Using Dijkstra,BFS and A* algorithm with Google Maps API to find the shortest path between two node.
+
+S: use for find the shortest path between two node, work with UCSD MOOC Development Team
+T: find the shortest path
+A: focus on develop the back end function Dijkstra, BFS and A* algorithm
+R: the project was completed.
+

@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=Part1
+comment1.params=
+comment1.target=void\ convertAndSave()
+comment2.params=ir1
+comment2.target=edu.duke.ImageResource\ makeGray(edu.duke.ImageResource)
+numComments=3

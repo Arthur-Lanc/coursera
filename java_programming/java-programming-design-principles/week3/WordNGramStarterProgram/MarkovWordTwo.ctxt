@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=MarkovWordTwo
+comment1.params=
+comment1.target=MarkovWordTwo()
+comment2.params=seed
+comment2.target=void\ setRandom(int)
+comment3.params=text
+comment3.target=void\ setTraining(java.lang.String)
+comment4.params=numWords
+comment4.target=java.lang.String\ getRandomText(int)
+comment5.params=key1\ key2
+comment5.target=java.util.ArrayList\ getFollows(java.lang.String,\ java.lang.String)
+comment5.text=\ \ \ \ private\ ArrayList<String>\ getFollows(String\ key)\ {\r\n\ \ \ \ \ \ \ \ ArrayList<String>\ follows\ \=\ new\ ArrayList<String>();\r\n\ \ \ \ \ \ \ \ int\ pos\ \=\ 0;\r\n\ \ \ \ \ \ \ \ while\ (pos\ <\ myText.length){\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ start\ \=\ indexOf(myText,key,pos);\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ \=\=\ -1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ //if\ (start\ +\ key.length()\ >\=\ myText.length-1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ +\ 1\ >\ myText.length-1){\ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ String\ next\ \=\ myText[start+1];\r\n\ \ \ \ \ \ \ \ \ \ \ \ follows.add(next);\r\n\ \ \ \ \ \ \ \ \ \ \ \ //\ pos\ \=\ start+key.length();\r\n\ \ \ \ \ \ \ \ \ \ \ \ pos\ \=\ start+1;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ follows;\r\n}
+comment6.params=words\ target1\ target2\ start
+comment6.target=int\ indexOf(java.lang.String[],\ java.lang.String,\ java.lang.String,\ int)
+comment7.params=
+comment7.target=void\ testGetFollows()
+numComments=8

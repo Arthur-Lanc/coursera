@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.target=MarkovOne
+comment1.params=
+comment1.target=MarkovOne()
+comment2.params=seed
+comment2.target=void\ setRandom(int)
+comment3.params=s
+comment3.target=void\ setTraining(java.lang.String)
+comment4.params=numChars
+comment4.target=java.lang.String\ getRandomText(int)
+comment4.text=\ \ \ \ public\ String\ getRandomText(int\ numChars){\r\n\ \ \ \ \ \ \ \ if\ (myText\ \=\=\ null){\r\n\ \ \ \ \ \ \ \ \ \ \ \ return\ "";\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ StringBuilder\ sb\ \=\ new\ StringBuilder();\r\n\ \ \ \ \ \ \ \ for(int\ k\=0;\ k\ <\ numChars;\ k++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ index\ \=\ myRandom.nextInt(myText.length());\r\n\ \ \ \ \ \ \ \ \ \ \ \ sb.append(myText.charAt(index));\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ return\ sb.toString();\r\n}
+comment5.params=key
+comment5.target=java.util.ArrayList\ getFollows(java.lang.String)
+numComments=6

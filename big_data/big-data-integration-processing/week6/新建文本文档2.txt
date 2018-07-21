@@ -1,0 +1,332 @@
+
+Jupyter Notebook
+SoccerTweetAnalysis (autosaved)
+
+Python 3
+
+    File
+    Edit
+    View
+    Insert
+    Cell
+    Kernel
+    Help
+
+# Import and create a new SQLContext 
+
+from pyspark.sql import SQLContext
+
+sqlContext = SQLContext(sc)
+
+# Read the country CSV file into an RDD.
+
+country_lines = sc.textFile('file:///home/cloudera/Downloads/big-data-3/final-project/country-list.csv')
+
+country_lines.take(5)
+
+['Afghanistan, AFG',
+ 'Albania, ALB',
+ 'Algeria, ALG',
+ 'American Samoa, ASA',
+ 'Andorra, AND']
+
+# Convert each line into a pair of words
+
+type(country_lines)
+
+# country_words = country_lines.flatMap(lambda lines:lines.split(","))
+
+country_tuples = country_lines.map(lambda lines:tuple(lines.split(",")))
+
+country_tuples.take(5)
+
+[('Afghanistan', ' AFG'),
+ ('Albania', ' ALB'),
+ ('Algeria', ' ALG'),
+ ('American Samoa', ' ASA'),
+ ('Andorra', ' AND')]
+
+# Convert each pair of words into a tuple
+
+# country_tuples = country_words.map(lambda word:(word,1))
+
+# country_tuples.take(5)
+
+# type(country_tuples)
+
+pyspark.rdd.PipelinedRDD
+
+# Create the DataFrame, look at schema and contents
+
+countryDF = sqlContext.createDataFrame(country_tuples, ["country", "code"])
+
+countryDF.printSchema()
+
+countryDF.take(3)
+
+#type(countryDF)
+
+countryDF.show(10)
+
+countryDF.count()
+
+root
+ |-- country: string (nullable = true)
+ |-- code: string (nullable = true)
+
++-------------------+----+
+|            country|code|
++-------------------+----+
+|        Afghanistan| AFG|
+|            Albania| ALB|
+|            Algeria| ALG|
+|     American Samoa| ASA|
+|            Andorra| AND|
+|             Angola| ANG|
+|           Anguilla| AIA|
+|Antigua and Barbuda| ATG|
+|          Argentina| ARG|
+|            Armenia| ARM|
++-------------------+----+
+only showing top 10 rows
+
+211
+
+# Read tweets CSV file into RDD of lines
+
+tweet_lines = sc.textFile('file:///home/cloudera/Downloads/big-data-3/mongodb/mongodb-linux-x86_64-3.2.8/test2')
+
+# type(tweet_lines)
+
+# column_name = tweet_lines.take(1)
+
+#tweet_lines.take(10)
+
+tweet_lines.count()
+
+​
+
+header = tweet_lines.first() #extract header
+
+tweet_lines1 = tweet_lines.filter(lambda row : row != header)   #filter out header
+
+tweet_lines1.take(10)
+
+# tweet_lines1.count()
+
+['RT @ochocinco: I beat them all for 10 straight hours #FIFA16KING  https://t.co/BFnV6jfkBL',
+ 'RT @NiallOfficial: @Louis_Tomlinson @socceraid when I retired from playing because of my knee . I went and did my uefa A badges in Dublin',
+ 'RT @GameSeek: Follow & Retweet for your chance to win a copy of FIFA 17 Deluxe Edition (platform of your choice) in our #giveaway! https://…',
+ '@CIVARAGI ...I was putting ffs but it autocorrected it too FIFA',
+ "RT @GeniusFootball: You know it's FIFA... https://t.co/tLK6sTnPaM",
+ '"RT @WeahsCousin: ""Pogba isn\'t worth £100million.""',
+ '',
+ 'Thanks Dean, the £500 you\'ve spent on FIFA Ultimate Team probably wasn\'t worth it either."',
+ '"RT @WeahsCousin: ""Pogba isn\'t worth £100million.""',
+ '']
+
+# Clean the data: some tweets are empty. Remove the empty tweets using filter() 
+
+tweet_lines2 = tweet_lines1.filter(lambda a:a != '')
+
+tweet_lines2.take(10)
+
+# tweet_tuples = tweet_lines.map(lambda a:(a,))
+
+# tweet_tuples.take(10)
+
+# tweetDF = sqlContext.createDataFrame(tweet_tuples)
+
+# tweetDF.printSchema()
+
+# tweetDF.take(10)
+
+['RT @ochocinco: I beat them all for 10 straight hours #FIFA16KING  https://t.co/BFnV6jfkBL',
+ 'RT @NiallOfficial: @Louis_Tomlinson @socceraid when I retired from playing because of my knee . I went and did my uefa A badges in Dublin',
+ 'RT @GameSeek: Follow & Retweet for your chance to win a copy of FIFA 17 Deluxe Edition (platform of your choice) in our #giveaway! https://…',
+ '@CIVARAGI ...I was putting ffs but it autocorrected it too FIFA',
+ "RT @GeniusFootball: You know it's FIFA... https://t.co/tLK6sTnPaM",
+ '"RT @WeahsCousin: ""Pogba isn\'t worth £100million.""',
+ 'Thanks Dean, the £500 you\'ve spent on FIFA Ultimate Team probably wasn\'t worth it either."',
+ '"RT @WeahsCousin: ""Pogba isn\'t worth £100million.""',
+ 'Thanks Dean, the £500 you\'ve spent on FIFA Ultimate Team probably wasn\'t worth it either."',
+ 'New on eBay! XBOX 360 Game FIFA 16 2016 https://t.co/xicyLOE6aQ https://t.co/uw9OLrie4e']
+
+# Perform WordCount on the cleaned tweet texts. (note: this is several lines.)
+
+words = tweet_lines2.flatMap(lambda line:line.split(" "))
+
+type(words)
+
+words.take(5)
+
+tuples = words.map(lambda word:(word,1))
+
+tuples.take(5)
+
+counts = tuples.reduceByKey(lambda a,b: (a+b))
+
+type(counts)
+
+counts.take(5)
+
+[('', 3292),
+ ('https://t.co/fQftAwGAad', 1),
+ ('mobile', 1),
+ ('#FridayNightTouchdown', 1),
+ ('circle', 7)]
+
+# Create the DataFrame of tweet word counts
+
+wcDF = sqlContext.createDataFrame(counts, ["country", "num"])
+
+#cDF = sqlContext.createDataFrame(counts, ["code", "num"])
+
+wcDF.printSchema()
+
+wcDF.take(3)
+
+wcDF.show(10)
+
+#type(wcDF)
+
+root
+ |-- country: string (nullable = true)
+ |-- num: long (nullable = true)
+
++--------------------+----+
+|             country| num|
++--------------------+----+
+|                    |3292|
+|https://t.co/fQft...|   1|
+|              mobile|   1|
+|#FridayNightTouch...|   1|
+|              circle|   7|
+|               #thfc|   2|
+|          reinstated|   4|
+|              like?"|   1|
+|              Bellow|   1|
+|                now"|   1|
++--------------------+----+
+only showing top 10 rows
+
+# Join the country and tweet data frames (on the appropriate column)
+
+merge=wcDF.join(countryDF,'country')
+
+merge.collect()
+
+[Row(country='Thailand', num=1, code=' THA'),
+ Row(country='Iceland', num=2, code=' ISL'),
+ Row(country='Mexico', num=1, code=' MEX'),
+ Row(country='Wales', num=19, code=' WAL'),
+ Row(country='Denmark', num=1, code=' DEN'),
+ Row(country='India', num=4, code=' IND'),
+ Row(country='Portugal', num=8, code=' POR'),
+ Row(country='Poland', num=1, code=' POL'),
+ Row(country='Norway', num=52, code=' NOR'),
+ Row(country='Guinea', num=8, code=' GUI'),
+ Row(country='Slovakia', num=30, code=' SVK'),
+ Row(country='Canada', num=11, code=' CAN'),
+ Row(country='Netherlands', num=13, code=' NED'),
+ Row(country='Kenya', num=3, code=' KEN'),
+ Row(country='Oman', num=1, code=' OMA'),
+ Row(country='Qatar', num=4, code=' QAT'),
+ Row(country='Brazil', num=13, code=' BRA'),
+ Row(country='England', num=25, code=' ENG'),
+ Row(country='Albania', num=1, code=' ALB'),
+ Row(country='Argentina', num=2, code=' ARG'),
+ Row(country='Scotland', num=2, code=' SCO'),
+ Row(country='Ghana', num=1, code=' GHA'),
+ Row(country='Iran', num=1, code=' IRN'),
+ Row(country='Nigeria', num=49, code=' NGA'),
+ Row(country='Iraq', num=6, code=' IRQ'),
+ Row(country='Georgia', num=5, code=' GEO'),
+ Row(country='Kosovo', num=1, code=' KVX[2]'),
+ Row(country='Somalia', num=1, code=' SOM'),
+ Row(country='Israel', num=2, code=' ISR'),
+ Row(country='France', num=42, code=' FRA'),
+ Row(country='Russia', num=15, code=' RUS'),
+ Row(country='Sudan', num=2, code=' SDN'),
+ Row(country='Germany', num=20, code=' GER'),
+ Row(country='Australia', num=2, code=' AUS'),
+ Row(country='Spain', num=8, code=' ESP'),
+ Row(country='Chad', num=9, code=' CHA'),
+ Row(country='Japan', num=5, code=' JPN'),
+ Row(country='Jordan', num=6, code=' JOR'),
+ Row(country='Gambia', num=1, code=' GAM'),
+ Row(country='Austria', num=5, code=' AUT'),
+ Row(country='Switzerland', num=10, code=' SUI'),
+ Row(country='Italy', num=1, code=' ITA'),
+ Row(country='Jamaica', num=2, code=' JAM'),
+ Row(country='Nepal', num=1, code=' NEP')]
+
+# Question 1: number of distinct countries mentioned
+
+merge.count()
+
+44
+
+# Question 2: number of countries mentioned in tweets.
+
+from pyspark.sql.functions import sum
+
+merge.groupBy().sum('num').collect()
+
+[Row(sum(num)=397)]
+
+# Table 1: top three countries and their counts.
+
+from pyspark.sql.functions import desc
+
+merge.sort(merge.num.desc()).collect()
+
+[Row(country='Norway', num=52, code=' NOR'),
+ Row(country='Nigeria', num=49, code=' NGA'),
+ Row(country='France', num=42, code=' FRA'),
+ Row(country='Slovakia', num=30, code=' SVK'),
+ Row(country='England', num=25, code=' ENG'),
+ Row(country='Germany', num=20, code=' GER'),
+ Row(country='Wales', num=19, code=' WAL'),
+ Row(country='Russia', num=15, code=' RUS'),
+ Row(country='Netherlands', num=13, code=' NED'),
+ Row(country='Brazil', num=13, code=' BRA'),
+ Row(country='Canada', num=11, code=' CAN'),
+ Row(country='Switzerland', num=10, code=' SUI'),
+ Row(country='Chad', num=9, code=' CHA'),
+ Row(country='Portugal', num=8, code=' POR'),
+ Row(country='Guinea', num=8, code=' GUI'),
+ Row(country='Spain', num=8, code=' ESP'),
+ Row(country='Iraq', num=6, code=' IRQ'),
+ Row(country='Jordan', num=6, code=' JOR'),
+ Row(country='Georgia', num=5, code=' GEO'),
+ Row(country='Japan', num=5, code=' JPN'),
+ Row(country='Austria', num=5, code=' AUT'),
+ Row(country='India', num=4, code=' IND'),
+ Row(country='Qatar', num=4, code=' QAT'),
+ Row(country='Kenya', num=3, code=' KEN'),
+ Row(country='Iceland', num=2, code=' ISL'),
+ Row(country='Argentina', num=2, code=' ARG'),
+ Row(country='Scotland', num=2, code=' SCO'),
+ Row(country='Israel', num=2, code=' ISR'),
+ Row(country='Sudan', num=2, code=' SDN'),
+ Row(country='Australia', num=2, code=' AUS'),
+ Row(country='Jamaica', num=2, code=' JAM'),
+ Row(country='Thailand', num=1, code=' THA'),
+ Row(country='Mexico', num=1, code=' MEX'),
+ Row(country='Denmark', num=1, code=' DEN'),
+ Row(country='Poland', num=1, code=' POL'),
+ Row(country='Oman', num=1, code=' OMA'),
+ Row(country='Albania', num=1, code=' ALB'),
+ Row(country='Ghana', num=1, code=' GHA'),
+ Row(country='Iran', num=1, code=' IRN'),
+ Row(country='Kosovo', num=1, code=' KVX[2]'),
+ Row(country='Somalia', num=1, code=' SOM'),
+ Row(country='Gambia', num=1, code=' GAM'),
+ Row(country='Italy', num=1, code=' ITA'),
+ Row(country='Nepal', num=1, code=' NEP')]
+
+# Table 2: counts for Wales, Iceland, and Japan.
+
+​
+

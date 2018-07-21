@@ -1,0 +1,18 @@
+#BlueJ class context
+comment0.target=MarkovWord
+comment1.params=order
+comment1.target=MarkovWord(int)
+comment2.params=seed
+comment2.target=void\ setRandom(int)
+comment3.params=text
+comment3.target=void\ setTraining(java.lang.String)
+comment4.params=numWords
+comment4.target=java.lang.String\ getRandomText(int)
+comment4.text=\ \ \ \ public\ String\ getRandomText(int\ numWords){\r\n\ \ \ \ \ \ \ \ StringBuilder\ sb\ \=\ new\ StringBuilder();\r\n\ \ \ \ \ \ \ \ int\ index\ \=\ myRandom.nextInt(myText.length-2);\ \ //\ random\ word\ to\ start\ with\r\n\ \ \ \ \ \ \ \ String\ key1\ \=\ myText[index];\r\n\ \ \ \ \ \ \ \ String\ key2\ \=\ myText[index+1];\r\n\ \ \ \ \ \ \ \ sb.append(key1);\r\n\ \ \ \ \ \ \ \ sb.append("\ ");\r\n\ \ \ \ \ \ \ \ sb.append(key2);\r\n\ \ \ \ \ \ \ \ sb.append("\ ");\r\n\ \ \ \ \ \ \ \ for(int\ k\=0;\ k\ <\ numWords-1;\ k++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ ArrayList<String>\ follows\ \=\ getFollows(key1,key2);\r\n\ \ \ \ \ \ \ \ \ \ \ \ //System.out.println("key\:\ "+key);\r\n\ \ \ \ \ \ \ \ \ \ \ \ //System.out.println("follows\:\ "+follows);\r\n\ \ \ \ \ \ \ \ \ \ \ \ //System.out.println("");\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (follows.size()\ \=\=\ 0)\ {\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ index\ \=\ myRandom.nextInt(follows.size());\r\n\ \ \ \ \ \ \ \ \ \ \ \ String\ next\ \=\ follows.get(index);\r\n\ \ \ \ \ \ \ \ \ \ \ \ sb.append(next);\r\n\ \ \ \ \ \ \ \ \ \ \ \ sb.append("\ ");\r\n\ \ \ \ \ \ \ \ \ \ \ \ key1\ \=\ key2;\r\n\ \ \ \ \ \ \ \ \ \ \ \ key2\ \=\ next;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ \ \ \ \ return\ sb.toString().trim();\r\n}
+comment5.params=kGram
+comment5.target=java.util.ArrayList\ getFollows(WordGram)
+comment5.text=\ \ \ \ private\ ArrayList<String>\ getFollows(String\ key1,String\ key2)\ {\r\n\ \ \ \ \ \ \ \ ArrayList<String>\ follows\ \=\ new\ ArrayList<String>();\r\n\ \ \ \ \ \ \ \ int\ pos\ \=\ 0;\r\n\ \ \ \ \ \ \ \ while\ (pos\ <\ myText.length){\r\n\ \ \ \ \ \ \ \ \ \ \ \ int\ start\ \=\ indexOf(myText,key1,key2,pos);\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ \=\=\ -1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ //if\ (start\ +\ key.length()\ >\=\ myText.length-1){\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (start\ +\ 2\ >\ myText.length-1){\ \ \ \ \r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ break;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ \ \ \ \ String\ next\ \=\ myText[start+2];\r\n\ \ \ \ \ \ \ \ \ \ \ \ follows.add(next);\r\n\ \ \ \ \ \ \ \ \ \ \ \ //\ pos\ \=\ start+key.length();\r\n\ \ \ \ \ \ \ \ \ \ \ \ pos\ \=\ start+2;\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ follows;\r\n}
+comment6.params=words\ target\ start
+comment6.target=int\ indexOf(java.lang.String[],\ WordGram,\ int)
+comment6.text=\ \ \ \ private\ int\ indexOf(String[]\ words,\ String\ target1,String\ target2,\ int\ start){\r\n\ \ \ \ \ \ \ \ for(int\ k\=start;k<words.length-1;k++){\r\n\ \ \ \ \ \ \ \ \ \ \ \ if\ (words[k].equals(target1)\ &&\ words[k+1].equals(target2)){\r\n\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ return\ k;\r\n\ \ \ \ \ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ }\r\n\ \ \ \ \ \ \ \ return\ -1;\r\n}
+numComments=7

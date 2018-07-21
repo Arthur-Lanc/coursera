@@ -1,0 +1,20 @@
+#BlueJ class context
+comment0.target=FourthRatings
+comment1.params=id\ minimalRaters
+comment1.target=double\ getAverageByID(java.lang.String,\ int)
+comment1.text=\ \ \ \ //\ private\ ArrayList<Movie>\ myMovies;\r\n\ \ \ \ private\ ArrayList<Rater>\ myRaters;\r\n\ \ \ \ \r\n\ \ \ \ public\ FourthRatings(){\r\n\ \ \ \ \ \ \ \ //\ default\ constructor\r\n\ \ \ \ \ \ \ \ //\ this("ratedmoviesfull.csv",\ "ratings.csv");\r\n\ \ \ \ \ \ \ \ this("ratings.csv");\r\n\ \ \ \ }\r\n\r\n\ \ \ \ public\ FourthRatings(String\ ratingsfile){\r\n\ \ \ \ \ \ \ \ FirstRatings\ fr\ \=\ new\ FirstRatings();\r\n\ \ \ \ \ \ \ \ //\ myMovies\ \=\ fr.loadMovies("data/"+moviefile);\r\n\ \ \ \ \ \ \ \ myRaters\ \=\ fr.loadRaters("data/"+ratingsfile);\r\n\ \ \ \ }\r\n\r\n\ \ \ \ public\ int\ getRaterSize(){\r\n\ \ \ \ \ \ \ \ return\ myRaters.size();\r\n}
+comment2.params=minimalRaters
+comment2.target=java.util.ArrayList\ getAverageRatings(int)
+comment3.params=minimalRaters\ filterCriteria
+comment3.target=java.util.ArrayList\ getAverageRatingsByFilter(int,\ Filter)
+comment4.params=me\ r
+comment4.target=double\ dotProduct(Rater,\ Rater)
+comment5.params=id
+comment5.target=java.util.ArrayList\ getSimilarities(java.lang.String)
+comment6.params=id\ minimalRaters\ raterIdSimlarityList\ numSimilarRaters
+comment6.target=double\ getAverageByID2(java.lang.String,\ int,\ java.util.ArrayList,\ int)
+comment7.params=id\ numSimilarRaters\ minimalRaters
+comment7.target=java.util.ArrayList\ getSimilarRatings(java.lang.String,\ int,\ int)
+comment8.params=id\ numSimilarRaters\ minimalRaters\ filterCriteria
+comment8.target=java.util.ArrayList\ getSimilarRatingsByFilter(java.lang.String,\ int,\ int,\ Filter)
+numComments=9

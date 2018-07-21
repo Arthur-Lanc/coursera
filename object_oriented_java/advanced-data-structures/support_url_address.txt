@@ -1,0 +1,12 @@
+https://www.coursera.org/learn/object-oriented-java/supplement/zqSRy/setting-up-java-and-eclipse-on-windows-and-linux
+
+https://www.coursera.org/learn/object-oriented-java/supplement/78GNI/support-troubleshooting-common-issues
+
+https://www.coursera.org/learn/data-structures-optimizing-performance/supplement/amsdH/setting-up-java-and-eclipse
+
+http://www.eclipse.org/efxclipse/install.html#for-the-ambitious
+
+-Dhttp.proxyHost=*enter host* -Dhttp.proxyPort=*enter port*
+-Dhttp.proxyHost=127.0.0.1 -Dhttp.proxyPort=8080
+
+AIzaSyBanI_O4eEoepKAueF2r2P8o3QwcmIadnM

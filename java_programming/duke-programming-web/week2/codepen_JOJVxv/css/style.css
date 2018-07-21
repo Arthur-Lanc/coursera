@@ -1,0 +1,24 @@
+body {
+  background-color: #C6C6C6;
+  font-family: "Courier New", Courier, monospace;
+}
+
+canvas{
+  height:200px;
+  border:1px solid lightgray;
+}
+
+p{
+  font-family: Verdana, Geneva, sans-serif;
+}
+
+
+input{
+  background-color: #8FA9E9;
+  font-size:14pt;
+}
+
+h1{
+  font-family:arial;
+/*   color:dimgray; */
+}
