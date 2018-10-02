@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.GotoLineAction$GotoLineDialog_dialogBounds">
+		<item value="692" key="DIALOG_X_ORIGIN"/>
+		<item value="362" key="DIALOG_Y_ORIGIN"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="false" key="isRegEx"/>
+		<item value="isFindVerticalSeamCall" key="selection"/>
+		<item value="true" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="true" key="wrap"/>
+		<item value="true" key="wholeword"/>
+		<list key="findhistory">
+			<item value="isFindVerticalSeamCall"/>
+			<item value="energy("/>
+			<item value="energy"/>
+			<item value="height()"/>
+			<item value="width()"/>
+			<item value="width"/>
+			<item value="SCUtility"/>
+			<item value="relax"/>
+			<item value="In"/>
+			<item value="KdTree"/>
+			<item value="nrtPoint"/>
+			<item value="nrtDist"/>
+			<item value="ps"/>
+			<item value="draw"/>
+			<item value="pointsCopy"/>
+		</list>
+		<list key="replacehistory">
+			<item value="myPicture.height()"/>
+			<item value="myPicture.width()"/>
+			<item value="myTree"/>
+			<item value="newActualDistance"/>
+			<item value="getActualDistance"/>
+			<item value="setActualDistance"/>
+			<item value="actualDistance"/>
+			<item value="newDistance"/>
+			<item value="getDistance"/>
+			<item value="setDistance"/>
+			<item value="distance"/>
+			<item value="MapNode"/>
+			<item value="goalNode"/>
+			<item value="startNode"/>
+			<item value="mapOffsetY"/>
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="300" key="DIALOG_WIDTH"/>
+		<item value="1|微软雅黑|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|微软雅黑" key="DIALOG_FONT_NAME"/>
+		<item value="409" key="DIALOG_HEIGHT"/>
+		<item value="886" key="DIALOG_X_ORIGIN"/>
+		<item value="265" key="DIALOG_Y_ORIGIN"/>
+	</section>
+</section>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+<fullyQualifiedTypeName name="de.fhpotsdam.unfolding.marker.AbstractMarker"/>
+<fullyQualifiedTypeName name="java.text.DecimalFormat"/>
+<fullyQualifiedTypeName name="processing.core.PGraphics"/>
+<fullyQualifiedTypeName name="module6.CityMarker"/>
+<fullyQualifiedTypeName name="textgen.LLNode"/>
+<fullyQualifiedTypeName name="basicgraph.GraphAdjMatrix"/>
+<fullyQualifiedTypeName name="java.util.List"/>
+<fullyQualifiedTypeName name="java.util.ListIterator"/>
+<fullyQualifiedTypeName name="java.util.PriorityQueue"/>
+<fullyQualifiedTypeName name="LineSegment"/>
+<fullyQualifiedTypeName name="java.util.ArrayList"/>
+<fullyQualifiedTypeName name="java.util.Random"/>
+<fullyQualifiedTypeName name="java.util.Iterator"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.MinPQ"/>
+<fullyQualifiedTypeName name="java.util.Comparator"/>
+<fullyQualifiedTypeName name="java.util.Collections"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Point2D"/>
+<fullyQualifiedTypeName name="java.util.Queue"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.RectHV"/>
+<fullyQualifiedTypeName name="org.omg.CosNaming.IstringHelper"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Bag"/>
+<fullyQualifiedTypeName name="java.util.NoSuchElementException"/>
+<fullyQualifiedTypeName name="WordNet"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Queue"/>
+<fullyQualifiedTypeName name="java.util.HashMap"/>
+<fullyQualifiedTypeName name="java.util.LinkedList"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.DirectedCycle"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Digraph"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.BreadthFirstDirectedPaths"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdIn"/>
+<fullyQualifiedTypeName name="java.util.Collection"/>
+<fullyQualifiedTypeName name="java.util.Arrays"/>
+<fullyQualifiedTypeName name="java.util.HashSet"/>
+<fullyQualifiedTypeName name="java.util.Set"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.In"/>
+<fullyQualifiedTypeName name="java.math.BigInteger"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.Picture"/>
+<fullyQualifiedTypeName name="java.awt.Color"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.DirectedEdge"/>
+<fullyQualifiedTypeName name="edu.princeton.cs.algs4.StdOut"/>
+</qualifiedTypeNameHistroy>

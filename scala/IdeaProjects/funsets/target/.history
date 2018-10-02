@@ -1,0 +1,11 @@
+test
+submit 357720621@qq.com 4PUgnki8Kdvh4vtI
+submit 357720621@qq.com IHUgnBzWN11TJyWi
+run
+scala Main
+scalc funset.Main
+scala funset.Main
+exit;
+exit
+scala
+console

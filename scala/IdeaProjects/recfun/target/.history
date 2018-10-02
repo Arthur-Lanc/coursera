@@ -1,0 +1,12 @@
+D:\IdeaProjects\recfun>sbt
+Java HotSpot(TM) 64-Bit Server VM warning: ignoring option MaxPermSize=256m; support was removed in 8.0
+[info] Loading project definition from D:\IdeaProjects\recfun\project
+[info] Compiling 8 Scala sources to D:\IdeaProjects\recfun\project\target\scala-2.10\sbt-0.13\classes...
+[warn] D:\IdeaProjects\recfun\project\CommonBuild.scala:3: trait Build in package sbt is deprecated: Use .sbt format instead
+[warn] trait CommonBuild extends Build {
+[warn]                           ^
+[warn] one warning found
+[info] Set current project to progfun1-recfun (in build file:/D:/IdeaProjects/recfun/)
+>
+submit 357720621@qq.com yJL5MfQ8dm2I5Tsp
+submit 357720621@qq.com 0ZI7F2NKRSmo8mUs
